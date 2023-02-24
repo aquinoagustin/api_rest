@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import ComputerItem from "./ComputerItem";
 import { listComputers } from "./ComputerServer";
+
 const ComputerList = () => {
   const [computer, setComputer] = useState([]);
   const [tablaComputer, setTablaComputer] = useState([]);
@@ -22,6 +24,7 @@ const ComputerList = () => {
   };
 
   const filtrar = (terminoBusqueda) => {
+    // eslint-disable-next-line
     var resultadosBusqueda = tablaComputer.filter((elemento) => {
       if (
         elemento.name
@@ -32,6 +35,7 @@ const ComputerList = () => {
         return elemento;
       }
     });
+
     setComputer(resultadosBusqueda);
   };
   useEffect(() => {
@@ -63,15 +67,18 @@ const ComputerList = () => {
             <th scope="col">#</th>
           </tr>
         </thead>
-        {computer.map((computer) => {
-          return (
-            <ComputerItem
-              key={computer.id}
-              computer={computer}
-              ListListComputers={ListListComputers}
-            />
-          );
-        })}
+        {
+          computer.map((element) => {
+            return (
+              <ComputerItem
+                key={element.id}
+                computer={element}
+                ListListComputers={ListListComputers}
+              />
+            );
+          })
+        }
+          
       </table>
     </div>
   );

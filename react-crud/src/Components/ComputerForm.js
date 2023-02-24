@@ -55,9 +55,6 @@ const ComputerForm = () => {
 
       <div className="row">
         <div className="col">
-          {
-            params ? <h1>aa</h1>  : <h1>dd</h1>
-          }
           <h1>Create Product</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
