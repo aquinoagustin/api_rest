@@ -1,0 +1,13 @@
+.containerInput{
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 25px;
+
+}
+.containerInput input{
+  width:50%;
+}
+.containerInput button{
+  margin:2px;
+}
