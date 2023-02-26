@@ -68,15 +68,20 @@ const ComputerList = () => {
           </tr>
         </thead>
         {
-          computer.map((element) => {
-            return (
-              <ComputerItem
-                key={element.id}
-                computer={element}
-                ListListComputers={ListListComputers}
-              />
-            );
-          })
+          computer ? (
+
+            computer.map((element) => {
+              return (
+                <ComputerItem
+                  key={element.id}
+                  computer={element}
+                  ListListComputers={ListListComputers}
+                />
+              );
+            })
+
+          ) : null
+
         }
           
       </table>
