@@ -11,3 +11,24 @@
 .containerInput button{
   margin:2px;
 }
+
+.button-upload{
+  margin: 6px;
+}
+
+.logo{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.logo h3{
+  margin-left: 10px;
+}
+
+.obrasoci{
+  width:3rem;
+}
+
+.tr:hover{
+  opacity: 0.9;
+}
