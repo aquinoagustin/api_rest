@@ -9,7 +9,7 @@ const ComputerForm = () => {
     }
     const initialState={id:0,name:"",id_computer:"",id_monitor:"",anydesk:"",swi:0,puert:0,ip:""}
     const [computer,setComputer]=useState(initialState);
-  
+    const Swal = require('sweetalert2')
   const handleSubmit= async (e)=>{
     e.preventDefault();
     try{
@@ -19,12 +19,17 @@ const ComputerForm = () => {
           res = await registerComputer(computer);
           const data = await res.json();
           if(data.message==="Success"){
+            /* eslint eqeqeq: 0 */
+              if(e.nativeEvent.target[8].name!=0){
+                navigate('/')
+              }
               setComputer(initialState);
           }
         }else{
           await updateComputer(params.id,computer)
+          navigate('/')
         }
-        navigate("/")
+        confirmUpdate()
     }
     catch(error){
         console.log(error);
@@ -41,6 +46,17 @@ const ComputerForm = () => {
       console.log(error);
     }
   };
+
+
+  const confirmUpdate = () =>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 500
+    })
+  }
 
   useEffect(() => {
     if (params.id) {
@@ -87,10 +103,16 @@ const ComputerForm = () => {
             </div>
             
               {
-                params.id ? (
-                  <button type="submit" className="btn btn-success">Update</button>
+                params.id ? (   
+                  <div>
+                    <button type="submit" className="btn-success button-upload btn">Update</button> 
+                  </div>
                 ) : (
-                  <button type="submit" className="btn btn-primary">Register</button>
+                  <div>
+                    <button type="submit" className="btn btn-primary">Register</button>
+                    <button type="submit" className="btn-success button-upload btn" name="0">Go up and follow</button>
+                  </div>
+                  
                 )
               }
           </form>
