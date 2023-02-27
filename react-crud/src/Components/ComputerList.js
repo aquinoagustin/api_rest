@@ -30,6 +30,18 @@ const ComputerList = () => {
         elemento.name
           .toString()
           .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) 
+          ||elemento.id_computer
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase())
+          ||elemento.id_monitor
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase())
+          ||elemento.ip
+          .toString()
+          .toLowerCase()
           .includes(terminoBusqueda.toLowerCase())
       ) {
         return elemento;
@@ -52,7 +64,7 @@ const ComputerList = () => {
         />
         <button className="btn btn-success">Search</button>
       </div>
-      <table className="table table-dark">
+      <table className="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">ID</th>
